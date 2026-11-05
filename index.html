@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COPACI Granjas Guadalupe</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:Arial,Helvetica,sans-serif;background:#fff7fa;color:#54283c;}
+a{text-decoration:none;}
+.contenedor{width:90%;max-width:1100px;margin:auto;}
+.encabezado{background:white;border-bottom:2px solid #f7d5e2;position:sticky;top:0;z-index:1000;box-shadow:0 4px 15px rgba(180,50,100,0.10);}
+.encabezado-contenido{min-height:75px;display:flex;justify-content:space-between;align-items:center;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-cuadro{width:48px;height:48px;background:linear-gradient(135deg,#e94f87,#c92f6c);color:white;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:17px;box-shadow:0 5px 15px rgba(201,47,108,.25);}
+.logo strong{display:block;color:#c92f6c;font-size:18px;}
+.logo small{color:#856272;font-size:11px;}
+.menu{display:flex;gap:8px;}
+.menu a{color:#6c4052;padding:10px 16px;border-radius:25px;font-weight:bold;transition:.3s;}
+.menu a:hover,.menu .activo{background:#f9d8e5;color:#c92f6c;}
+.inicio{padding:80px 0;background:radial-gradient(circle at 90% 20%,#ffd5e5,transparent 30%),linear-gradient(135deg,#fff9fb,#ffe9f1);}
+.inicio-contenido{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:50px;}
+.etiqueta-inicio{display:inline-block;padding:9px 15px;background:white;color:#d13d76;border-radius:25px;font-size:12px;font-weight:bold;margin-bottom:20px;box-shadow:0 5px 15px rgba(190,60,110,.10);}
+.inicio h1{font-size:60px;line-height:1;color:#54243a;margin-bottom:25px;}
+.inicio h1 span{color:#d13d76;}
+.inicio-texto>p{color:#765766;font-size:17px;line-height:1.7;max-width:540px;}
+.inicio-botones{display:flex;gap:15px;margin-top:30px;flex-wrap:wrap;}
+.boton-rosa,.boton-blanco{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 24px;border-radius:30px;font-weight:bold;transition:.3s;}
+.boton-rosa{background:linear-gradient(135deg,#e9578c,#c92f6c);color:white;box-shadow:0 8px 20px rgba(201,47,108,.25);}
+.boton-rosa:hover{transform:translateY(-4px);}
+.boton-blanco{background:white;color:#c92f6c;border:2px solid #e58baa;}
+.boton-blanco:hover{background:#fbe0e9;}
+.mini-info{display:flex;gap:35px;margin-top:35px;}
+.mini-info div{display:flex;flex-direction:column;}
+.mini-info strong{color:#d13d76;font-size:21px;}
+.mini-info span{color:#795969;font-size:13px;}
+.inicio-tarjeta{position:relative;min-height:390px;display:flex;align-items:center;justify-content:center;}
+.circulo1{position:absolute;width:270px;height:270px;background:#f5aec6;border-radius:50%;right:20px;top:20px;}
+.circulo2{position:absolute;width:130px;height:130px;background:#e8759e;border-radius:50%;left:20px;bottom:15px;opacity:.5;}
+.tarjeta-bienvenida{position:relative;z-index:2;background:white;width:350px;padding:40px;border-radius:30px;text-align:center;box-shadow:0 20px 50px rgba(150,50,90,.18);}
+.corazon{width:60px;height:60px;margin:auto auto 20px;border-radius:18px;background:#fbe0e9;color:#d13d76;display:flex;align-items:center;justify-content:center;font-size:32px;}
+.tarjeta-bienvenida>span{color:#d13d76;font-size:11px;font-weight:bold;letter-spacing:2px;}
+.tarjeta-bienvenida h2{color:#54243a;font-size:27px;margin:15px 0;}
+.tarjeta-bienvenida p{color:#79606d;line-height:1.6;}
+.linea{width:55px;height:3px;background:#df4d82;margin:22px auto;border-radius:10px;}
+.estado{color:#765766;font-size:13px;}
+.punto{display:inline-block;width:9px;height:9px;border-radius:50%;background:#db5b88;margin-right:5px;}
+.seccion{padding:80px 0;}
+.servicios{background:white;}
+.titulo-seccion{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:40px;}
+.etiqueta{color:#d13d76;font-weight:bold;letter-spacing:2px;font-size:12px;}
+.titulo-seccion h2{color:#54243a;font-size:36px;margin-top:8px;}
+.titulo-seccion>p{max-width:400px;color:#795969;}
+.tarjetas{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;}
+.tarjeta{position:relative;background:#fff9fc;border:1px solid #f1d4df;padding:30px;border-radius:25px;transition:.3s;}
+.tarjeta:hover{transform:translateY(-8px);box-shadow:0 15px 35px rgba(180,50,100,.12);}
+.icono{width:55px;height:55px;background:#f9d8e5;color:#d13d76;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:25px;margin-bottom:20px;}
+.numero{position:absolute;top:30px;right:25px;color:#dca5b8;font-weight:bold;}
+.tarjeta h3{color:#54243a;margin-bottom:12px;}
+.tarjeta p{color:#795969;line-height:1.6;margin-bottom:22px;}
+.boton-tarjeta{display:inline-flex;align-items:center;gap:10px;background:#f8d3e1;color:#bd3167;padding:11px 17px;border-radius:25px;border:none;font-weight:bold;cursor:pointer;transition:.3s;}
+.boton-tarjeta:hover{background:#d13d76;color:white;transform:translateX(5px);}
+.avisos{background:#fff5f9;}
+.lista-avisos{display:grid;gap:20px;}
+.aviso{display:flex;align-items:center;gap:20px;background:white;padding:22px;border-radius:22px;border:1px solid #f1d4df;transition:.3s;}
+.aviso:hover{transform:translateX(6px);box-shadow:0 10px 25px rgba(180,50,100,.10);}
+.fecha{min-width:70px;height:75px;background:#df4d82;color:white;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.fecha strong{font-size:27px;}
+.fecha span{font-size:11px;font-weight:bold;}
+.aviso-contenido{flex:1;}
+.categoria{color:#d13d76;font-size:11px;font-weight:bold;}
+.aviso h3{color:#54243a;margin:5px 0;}
+.aviso p{color:#795969;}
+.flecha{width:40px;height:40px;background:#f9d8e5;color:#d13d76;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;}
+.participacion{background:linear-gradient(135deg,#df4d82,#bd2e68);color:white;padding:70px 0;}
+.participacion-contenido{display:flex;justify-content:space-between;align-items:center;gap:30px;}
+.participacion h2{font-size:38px;margin:10px 0;max-width:650px;}
+.participacion p{color:#ffe4ed;}
+.clara{color:#ffd9e6;}
+.grande{padding:15px 25px;}
+.pie{background:#4b2335;color:#f6dbe5;padding:55px 0 20px;}
+.pie-contenido{display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px;}
+.pie h3{color:#ffb4cb;margin-bottom:15px;}
+.pie p{color:#dfbac8;margin-bottom:8px;}
+.pie a{display:block;color:#f3d6e0;margin-bottom:8px;transition:.3s;}
+.pie a:hover{color:white;transform:translateX(4px);}
+.pie-principal p{max-width:300px;margin-top:15px;}
+.pie-final{margin-top:40px;padding-top:20px;border-top:1px solid #704054;display:flex;justify-content:space-between;}
+
+@media (max-width:800px){
+.encabezado-contenido{flex-direction:column;padding:15px 0;gap:12px;}
+.menu{flex-wrap:wrap;justify-content:center;}
+.inicio{padding:60px 0;}
+.inicio-contenido{grid-template-columns:1fr;}
+.inicio h1{font-size:48px;}
+.inicio-tarjeta{min-height:350px;}
+.tarjetas{grid-template-columns:1fr;}
+.titulo-seccion{flex-direction:column;align-items:flex-start;}
+.participacion-contenido{flex-direction:column;align-items:flex-start;}
+.pie-contenido{grid-template-columns:1fr;gap:30px;}
+}
+@media (max-width:500px){
+.contenedor{width:88%;}
+.menu a{padding:8px 11px;font-size:13px;}
+.inicio h1{font-size:43px;}
+.inicio-tarjeta{min-height:330px;}
+.tarjeta-bienvenida{width:100%;padding:30px 20px;}
+.titulo-seccion h2{font-size:30px;}
+.aviso{align-items:flex-start;}
+.flecha{display:none;}
+.participacion h2{font-size:30px;}
+.pie-final{flex-direction:column;gap:12px;}
+}
+
+.boton-acceso{border:none;cursor:pointer;font-family:inherit;font-size:14px;}
+.ventana-fondo{display:none;position:fixed;inset:0;z-index:3000;background:rgba(55,20,38,.65);padding:20px;align-items:center;justify-content:center;overflow-y:auto;}
+.ventana-fondo.mostrar{display:flex;}
+.ventana-acceso{position:relative;width:100%;max-width:480px;max-height:92vh;overflow-y:auto;background:white;padding:35px;border-radius:25px;box-shadow:0 20px 60px rgba(0,0,0,.25);animation:aparecer .2s ease;}
+@keyframes aparecer{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+.cerrar-ventana{position:absolute;top:15px;right:18px;width:35px;height:35px;border:none;border-radius:50%;background:#fbe0e9;color:#bd3167;font-size:22px;cursor:pointer;}
+.encabezado-formulario{text-align:center;margin-bottom:25px;}
+.encabezado-formulario .corazon{margin-bottom:14px;}
+.encabezado-formulario h2{color:#54243a;margin-bottom:8px;}
+.encabezado-formulario p{color:#795969;font-size:14px;line-height:1.5;}
+.grupo-campo{margin-bottom:15px;}
+.grupo-campo label{display:block;margin-bottom:7px;color:#54243a;font-size:13px;font-weight:bold;}
+.grupo-campo input,.grupo-campo select{width:100%;padding:13px 14px;border:1px solid #e8c8d5;border-radius:12px;outline:none;color:#54283c;background:#fffafd;font-family:inherit;font-size:14px;}
+.grupo-campo input:focus,.grupo-campo select:focus{border-color:#d13d76;box-shadow:0 0 0 3px rgba(209,61,118,.10);}
+.boton-formulario{width:100%;border:none;cursor:pointer;font-family:inherit;font-size:15px;margin-top:8px;}
+.cambiar-formulario{margin-top:20px;text-align:center;color:#795969;font-size:14px;}
+.cambiar-formulario button{border:none;background:none;color:#c92f6c;font-weight:bold;cursor:pointer;font-size:14px;}
+.mensaje-formulario{display:none;padding:11px 13px;margin-bottom:15px;border-radius:10px;font-size:13px;line-height:1.4;}
+.mensaje-formulario.exito{display:block;background:#e7f7ed;color:#21683a;}
+.mensaje-formulario.error{display:block;background:#fde8ed;color:#a3224e;}
+.usuario-activo{display:none;align-items:center;gap:10px;color:#bd3167;font-size:13px;font-weight:bold;}
+.usuario-activo button{border:1px solid #e58baa;border-radius:20px;padding:9px 13px;color:#bd3167;background:white;cursor:pointer;font-weight:bold;}
+@media (max-width:800px){
+.usuario-activo{justify-content:center;flex-wrap:wrap;}
+.ventana-acceso{padding:30px 22px;}
+}
+body:not(.autenticado) main,body:not(.autenticado) footer{display:none;}
+</style>
+</head>
+
+<body>
+
+<header class="encabezado" id="inicio">
+<div class="contenedor encabezado-contenido">
+<a href="#inicio" class="logo">
+<span class="logo-cuadro"> GG </span>
+<span>
+<strong>COPACI</strong>
+<small>Granjas Guadalupe</small>
+</span>
+</a>
+
+<nav class="menu">
+<a href="#inicio" class="activo"> Inicio </a>
+<a href="#tramites"> Trámites </a>
+<a href="#avisos"> Avisos </a>
+<a href="#contacto"> Contacto </a>
+
+<button type="button" class="boton-tarjeta boton-acceso" id="botonAbrirLogin" onclick="abrirVentana('ventanaLogin')"> Iniciar sesión </button>
+
+<div class="usuario-activo" id="usuarioActivo">
+<span id="nombreUsuarioActivo"></span>
+<button type="button" onclick="cerrarSesion()">Cerrar sesión</button>
+</div>
+</nav>
+</div>
+</header>
+
+<main id="contenidoPortal">
+
+<section class="inicio">
+<div class="contenedor inicio-contenido">
+<div class="inicio-texto">
+<span class="etiqueta-inicio"> ♡ BIENVENIDO A NUESTRO PORTAL </span>
+<h1> Tu comunidad, <span>más cerca.</span></h1>
+<p> Bienvenido al portal del COPACI de Granjas Guadalupe. Aquí podrás consultar información, realizar gestiones y conocer los avisos importantes de nuestra comunidad. </p>
+
+<div class="inicio-botones">
+<a href="#tramites" class="boton-rosa"> Ver trámites → </a>
+<a href="#avisos" class="boton-blanco"> Ver avisos </a>
+</div>
+
+<div class="mini-info">
+<div><strong>01</strong><span>Trámites</span></div>
+<div><strong>02</strong><span>Avisos</span></div>
+<div><strong>03</strong><span>Participación</span></div>
+</div>
+</div>
+
+<div class="inicio-tarjeta">
+<div class="circulo1"></div>
+<div class="circulo2"></div>
+<div class="tarjeta-bienvenida">
+<div class="corazon"> ♡ </div>
+<span> GRANJAS GUADALUPE </span>
+<h2> Unidos por nuestra comunidad </h2>
+<p> Información y servicios para mantenernos conectados. </p>
+<div class="linea"></div>
+<div class="estado">
+<span class="punto"></span> Portal disponible
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="seccion servicios" id="tramites">
+<div class="contenedor">
+<div class="titulo-seccion">
+<div>
+<span class="etiqueta"> SERVICIOS </span>
+<h2> Trámites y servicios </h2>
+</div>
+<p> Consulta los principales trámites y servicios disponibles para los vecinos de Granjas Guadalupe. </p>
+</div>
+
+<div class="tarjetas">
+<article class="tarjeta">
+<span class="numero"> 01 </span>
+<div class="icono"> 📄 </div>
+<h3> Solicitudes </h3>
+<p> Realiza solicitudes relacionadas con servicios, mantenimiento y necesidades de nuestra comunidad. </p>
+<a href="#contacto" class="boton-tarjeta"> Solicitar → </a>
+</article>
+
+<article class="tarjeta">
+<span class="numero"> 02 </span>
+<div class="icono"> 🏘️ </div>
+<h3> Servicios comunitarios </h3>
+<p> Consulta información sobre mantenimiento, espacios públicos y servicios para nuestra colonia. </p>
+<a href="#contacto" class="boton-tarjeta"> Consultar → </a>
+</article>
+
+<article class="tarjeta">
+<span class="numero"> 03 </span>
+<div class="icono"> 💬 </div>
+<h3> Reportes </h3>
+<p> Comparte un reporte o comentario para ayudar a mejorar las condiciones de nuestra comunidad. </p>
+<a href="#contacto" class="boton-tarjeta"> Reportar → </a>
+</article>
+</div>
+</div>
+</section>
+
+<section class="seccion avisos" id="avisos">
+<div class="contenedor">
+<div class="titulo-seccion">
+<div>
+<span class="etiqueta"> INFORMACIÓN </span>
+<h2> Avisos de la comunidad </h2>
+</div>
+<p> Mantente informado sobre reuniones, actividades y acontecimientos importantes. </p>
+</div>
+
+<div class="lista-avisos">
+<article class="aviso">
+<div class="fecha"><strong> 15 </strong><span> OCT </span></div>
+<div class="aviso-contenido">
+<span class="categoria"> REUNIÓN </span>
+<h3> Reunión vecinal </h3>
+<p> Invitamos a los vecinos a participar en la próxima reunión de nuestra comunidad. </p>
+</div>
+<div class="flecha"> → </div>
+</article>
+
+<article class="aviso">
+<div class="fecha"><strong> 20 </strong><span> OCT </span></div>
+<div class="aviso-contenido">
+<span class="categoria"> COMUNIDAD </span>
+<h3> Jornada de limpieza </h3>
+<p> Participa con nosotros en la jornada de limpieza y mejoramiento de espacios comunes. </p>
+</div>
+<div class="flecha"> → </div>
+</article>
+
+<article class="aviso">
+<div class="fecha"><strong> 27 </strong><span> OCT </span></div>
+<div class="aviso-contenido">
+<span class="categoria"> AVISO </span>
+<h3> Asamblea comunitaria </h3>
+<p> Consulta próximamente los detalles y temas que serán tratados durante la asamblea. </p>
+</div>
+<div class="flecha"> → </div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="participacion">
+<div class="contenedor participacion-contenido">
+<div>
+<span class="etiqueta clara"> PARTICIPACIÓN CIUDADANA </span>
+<h2> Tu opinión también construye nuestra comunidad. </h2>
+<p> Participa, comparte tus ideas y ayúdanos a mejorar Granjas Guadalupe. </p>
+</div>
+<a href="#contacto" class="boton-blanco grande"> Quiero participar → </a>
+</div>
+</section>
+
+<section class="seccion" id="contacto">
+<div class="contenedor">
+<div class="titulo-seccion">
+<div>
+<span class="etiqueta"> CONTÁCTANOS </span>
+<h2> Estamos para escucharte </h2>
+</div>
+<p> Si tienes alguna duda, propuesta o reporte, puedes ponerte en contacto con el COPACI. </p>
+</div>
+
+<div class="tarjetas">
+<article class="tarjeta">
+<div class="icono"> ✉️ </div>
+<h3> Correo electrónico </h3>
+<p> Escríbenos para realizar consultas, enviar propuestas o solicitar información. </p>
+<a href="mailto:copaci@granjaguadalupe.mx" class="boton-tarjeta"> Enviar correo → </a>
+</article>
+
+<article class="tarjeta">
+<div class="icono"> 🕐 </div>
+<h3> Horario de atención </h3>
+<p> Lunes a viernes<br> 9:00 a 18:00 horas </p>
+<span class="boton-tarjeta"> Atención vecinal </span>
+</article>
+
+<article class="tarjeta">
+<div class="icono"> 📍 </div>
+<h3> Granjas Guadalupe </h3>
+<p> Consulta los avisos del COPACI para conocer los puntos de reunión y actividades. </p>
+<a href="#avisos" class="boton-tarjeta"> Ver avisos → </a>
+</article>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="pie" id="piePortal">
+<div class="contenedor">
+<div class="pie-contenido">
+<div class="pie-principal">
+<h3> COPACI Granjas Guadalupe </h3>
+<p> Portal informativo de nuestra comunidad. Un espacio para mantenernos comunicados, participar y trabajar juntos. </p>
+</div>
+
+<div>
+<h3> Navegación </h3>
+<a href="#inicio"> Inicio </a>
+<a href="#tramites"> Trámites </a>
+<a href="#avisos"> Avisos </a>
+<a href="#contacto"> Contacto </a>
+</div>
+
+<div>
+<h3> Comunidad </h3>
+<p> Granjas Guadalupe </p>
+<p> COPACI </p>
+<p> Camila Juanico Perez </p>
+</div>
+</div>
+
+<div class="pie-final">
+<span> © 2026 Camila Juanico Perez ♡ </span>
+</div>
+</div>
+</footer>
+
+<!-- VENTANA DE INICIO DE SESIÓN -->
+<div class="ventana-fondo" id="ventanaLogin" role="dialog" aria-modal="true" aria-labelledby="tituloLogin" onclick="cerrarAlHacerFondo(event, 'ventanaLogin')">
+<section class="ventana-acceso">
+<button type="button" class="cerrar-ventana" aria-label="Cerrar" onclick="cerrarVentana('ventanaLogin')">&times;</button>
+
+<div class="encabezado-formulario">
+<div class="corazon">♡</div>
+<h2 id="tituloLogin">Iniciar sesión</h2>
+<p>Ingresa a tu cuenta del COPACI Granjas Guadalupe.</p>
+</div>
+
+<div id="mensajeLogin" class="mensaje-formulario" role="status"></div>
+
+<form id="formularioLogin">
+<div class="grupo-campo">
+<label for="loginCorreo">Correo electrónico</label>
+<input type="email" id="loginCorreo" autocomplete="email" placeholder="ejemplo@correo.com" required>
+</div>
+
+<div class="grupo-campo">
+<label for="loginContrasena">Contraseña</label>
+<input type="password" id="loginContrasena" autocomplete="current-password" placeholder="Escribe tu contraseña" required>
+</div>
+
+<button type="submit" class="boton-rosa boton-formulario">Entrar a mi cuenta</button>
+</form>
+
+<p class="cambiar-formulario">
+¿Todavía no tienes cuenta?
+<button type="button" onclick="cambiarARegistro()">Regístrate aquí</button>
+</p>
+</section>
+</div>
+
+<!-- VENTANA DE REGISTRO -->
+<div class="ventana-fondo" id="ventanaRegistro" role="dialog" aria-modal="true" aria-labelledby="tituloRegistro" onclick="cerrarAlHacerFondo(event, 'ventanaRegistro')">
+<section class="ventana-acceso">
+<button type="button" class="cerrar-ventana" aria-label="Cerrar" onclick="cerrarVentana('ventanaRegistro')">&times;</button>
+
+<div class="encabezado-formulario">
+<div class="corazon">♡</div>
+<h2 id="tituloRegistro">Crear una cuenta</h2>
+<p>Regístrate para participar en nuestra comunidad.</p>
+</div>
+
+<div id="mensajeRegistro" class="mensaje-formulario" role="status"></div>
+
+<form id="formularioRegistro">
+<div class="grupo-campo">
+<label for="registroNombre">Nombre(s)</label>
+<input type="text" id="registroNombre" autocomplete="given-name" placeholder="Escribe tu nombre" required>
+</div>
+
+<div class="grupo-campo">
+<label for="registroApellidos">Apellidos</label>
+<input type="text" id="registroApellidos" autocomplete="family-name" placeholder="Escribe tus apellidos" required>
+</div>
+
+<div class="grupo-campo">
+<label for="registroCorreo">Correo electrónico</label>
+<input type="email" id="registroCorreo" autocomplete="email" placeholder="ejemplo@correo.com" required>
+</div>
+
+<div class="grupo-campo">
+<label for="registroRol">Rol en el sistema</label>
+<select id="registroRol" required>
+<option value="Vecino/Ciudadano">Vecino/Ciudadano</option>
+</select>
+</div>
+
+<div class="grupo-campo">
+<label for="registroCalle">Calle</label>
+<input type="text" id="registroCalle" autocomplete="address-line1" placeholder="Nombre de la calle" required>
+</div>
+
+<div class="grupo-campo">
+<label for="registroDireccion">Dirección (número, colonia o referencias)</label>
+<input type="text" id="registroDireccion" autocomplete="address-line2" placeholder="Número exterior, interior o referencias" required>
+</div>
+
+<div class="grupo-campo">
+<label for="registroContrasena">Contraseña</label>
+<input type="password" id="registroContrasena" autocomplete="new-password" minlength="8" placeholder="Mínimo 8 caracteres" required>
+</div>
+
+<div class="grupo-campo">
+<label for="registroConfirmar">Confirmar contraseña</label>
+<input type="password" id="registroConfirmar" autocomplete="new-password" minlength="8" placeholder="Repite tu contraseña" required>
+</div>
+
+<button type="submit" class="boton-rosa boton-formulario">Crear mi cuenta</button>
+</form>
+
+<p class="cambiar-formulario">
+¿Ya tienes una cuenta?
+<button type="button" onclick="cambiarALogin()">Inicia sesión</button>
+</p>
+</section>
+</div>
+
+<script>
+/* ==========================================
+   REGISTRO E INICIO DE SESIÓN COPACI
+   Demo sin base de datos: usa localStorage.
+========================================== */
+
+const CLAVE_USUARIOS = 'copaci_usuarios_demo_v2';
+const CLAVE_SESION = 'copaci_sesion_demo_v2';
+
+function obtenerUsuarios() {
+    try {
+        const datos = localStorage.getItem(CLAVE_USUARIOS);
+        return datos ? JSON.parse(datos) : [];
+    } catch (error) {
+        console.error('No se pudieron leer las cuentas:', error);
+        return [];
+    }
+}
+
+function guardarUsuarios(usuarios) {
+    try {
+        localStorage.setItem(CLAVE_USUARIOS, JSON.stringify(usuarios));
+        return true;
+    } catch (error) {
+        console.error('No se pudieron guardar las cuentas:', error);
+        return false;
+    }
+}
+
+function mostrarMensaje(id, texto, tipo) {
+    const elemento = document.getElementById(id);
+    if (!elemento) return;
+    elemento.textContent = texto;
+    elemento.className = 'mensaje-formulario ' + tipo;
+}
+
+function limpiarMensaje(id) {
+    const elemento = document.getElementById(id);
+    if (!elemento) return;
+    elemento.textContent = '';
+    elemento.className = 'mensaje-formulario';
+}
+
+function abrirVentana(id) {
+    document.querySelectorAll('.ventana-fondo').forEach(v => v.classList.remove('mostrar'));
+    limpiarMensaje('mensajeLogin');
+    limpiarMensaje('mensajeRegistro');
+
+    const ventana = document.getElementById(id);
+    if (ventana) ventana.classList.add('mostrar');
+
+    document.body.style.overflow = 'hidden';
+}
+
+function cerrarVentana(id) {
+    if (!haySesionActiva()) return;
+
+    const ventana = document.getElementById(id);
+    if (ventana) ventana.classList.remove('mostrar');
+
+    document.body.style.overflow = '';
+}
+
+function cerrarAlHacerFondo(evento, id) {
+    if (evento.target.id === id && haySesionActiva()) {
+        cerrarVentana(id);
+    }
+}
+
+function cambiarARegistro() {
+    document.getElementById('formularioLogin').reset();
+    abrirVentana('ventanaRegistro');
+}
+
+function cambiarALogin() {
+    document.getElementById('formularioRegistro').reset();
+    abrirVentana('ventanaLogin');
+}
+
+function haySesionActiva() {
+    try {
+        return Boolean(localStorage.getItem(CLAVE_SESION));
+    } catch (error) {
+        return false;
+    }
+}
+
+function iniciarSesionConUsuario(usuario) {
+    const sesion = {
+        nombre: usuario.nombre,
+        apellidos: usuario.apellidos,
+        correo: usuario.correo,
+        rol: usuario.rol
+    };
+
+    localStorage.setItem(CLAVE_SESION, JSON.stringify(sesion));
+
+    actualizarInterfazUsuario();
+
+    document.querySelectorAll('.ventana-fondo').forEach(v => v.classList.remove('mostrar'));
+
+    document.body.style.overflow = '';
+}
+
+// REGISTRO DE USUARIOS
+
+document.getElementById('formularioRegistro').addEventListener('submit', function(evento) {
+    evento.preventDefault();
+    limpiarMensaje('mensajeRegistro');
+
+    const nombre = document.getElementById('registroNombre').value.trim();
+    const apellidos = document.getElementById('registroApellidos').value.trim();
+    const correo = document.getElementById('registroCorreo').value.trim().toLowerCase();
+    const rol = document.getElementById('registroRol').value;
+    const calle = document.getElementById('registroCalle').value.trim();
+    const direccion = document.getElementById('registroDireccion').value.trim();
+    const contrasena = document.getElementById('registroContrasena').value;
+    const confirmar = document.getElementById('registroConfirmar').value;
+
+    if (!nombre || !apellidos || !correo || !calle || !direccion || !contrasena) {
+        mostrarMensaje('mensajeRegistro', 'Completa todos los campos para continuar.', 'error');
+        return;
+    }
+
+    if (contrasena.length < 6) {
+        mostrarMensaje('mensajeRegistro', 'La contraseña debe tener al menos 6 caracteres.', 'error');
+        return;
+    }
+
+    if (contrasena !== confirmar) {
+        mostrarMensaje('mensajeRegistro', 'Las contraseñas no coinciden. Verifica e inténtalo de nuevo.', 'error');
+        return;
+    }
+
+    const usuarios = obtenerUsuarios();
+
+    if (usuarios.some(usuario => usuario.correo === correo)) {
+        mostrarMensaje('mensajeRegistro', 'Ese correo ya está registrado. Inicia sesión con esa cuenta.', 'error');
+        return;
+    }
+
+    const nuevoUsuario = {
+        nombre,
+        apellidos,
+        correo,
+        rol,
+        calle,
+        direccion,
+        contrasena
+    };
+
+    usuarios.push(nuevoUsuario);
+
+    if (!guardarUsuarios(usuarios)) {
+        mostrarMensaje('mensajeRegistro', 'El navegador no permitió guardar la cuenta. Revisa que no estés en modo incógnito.', 'error');
+        return;
+    }
+
+    iniciarSesionConUsuario(nuevoUsuario);
+
+    document.getElementById('formularioRegistro').reset();
+
+    alert('¡Registro exitoso! Bienvenido(a) al portal del COPACI.');
+});
+
+// INICIO DE SESIÓN
+
+document.getElementById('formularioLogin').addEventListener('submit', function(evento) {
+    evento.preventDefault();
+    limpiarMensaje('mensajeLogin');
+
+    const correo = document.getElementById('loginCorreo').value.trim().toLowerCase();
+    const contrasena = document.getElementById('loginContrasena').value;
+
+    const usuario = obtenerUsuarios().find(u =>
+        u.correo === correo && u.contrasena === contrasena
+    );
+
+    if (!usuario) {
+        mostrarMensaje('mensajeLogin', 'Correo o contraseña incorrectos. Si aún no tienes cuenta, regístrate primero.', 'error');
+        return;
+    }
+
+    iniciarSesionConUsuario(usuario);
+
+    document.getElementById('formularioLogin').reset();
+});
+
+// ACTUALIZAR INTERFAZ DEL USUARIO
+
+function actualizarInterfazUsuario() {
+    let sesion = null;
+
+    try {
+        sesion = JSON.parse(localStorage.getItem(CLAVE_SESION) || 'null');
+    } catch (error) {
+        sesion = null;
+    }
+
+    const botonLogin = document.getElementById('botonAbrirLogin');
+    const usuarioActivo = document.getElementById('usuarioActivo');
+    const nombreActivo = document.getElementById('nombreUsuarioActivo');
+
+    if (sesion) {
+        document.body.classList.add('autenticado');
+
+        if (botonLogin) botonLogin.style.display = 'none';
+        if (usuarioActivo) usuarioActivo.style.display = 'flex';
+        if (nombreActivo) nombreActivo.textContent = 'Hola, ' + sesion.nombre;
+
+    } else {
+        document.body.classList.remove('autenticado');
+
+        if (botonLogin) botonLogin.style.display = 'inline-flex';
+        if (usuarioActivo) usuarioActivo.style.display = 'none';
+        if (nombreActivo) nombreActivo.textContent = '';
+    }
+}
+
+// CERRAR SESIÓN
+
+function cerrarSesion() {
+    localStorage.removeItem(CLAVE_SESION);
+    actualizarInterfazUsuario();
+    abrirVentana('ventanaLogin');
+}
+
+// CERRAR VENTANAS CON ESCAPE
+
+document.addEventListener('keydown', function(evento) {
+    if (evento.key === 'Escape' && haySesionActiva()) {
+        document.querySelectorAll('.ventana-fondo.mostrar').forEach(v => cerrarVentana(v.id));
+    }
+});
+
+// AL CARGAR LA PÁGINA
+
+actualizarInterfazUsuario();
+
+if (!haySesionActiva()) {
+    abrirVentana('ventanaLogin');
+}
+</script>
+
+</body>
+</html>
